@@ -10,7 +10,7 @@ const server = createServer(app);
 
 // CORS 설정
 app.use(cors({
-  origin: ["http://localhost:3005", "http://localhost:3000"], // 메인 웹사이트 도메인
+  origin: true, // 모든 도메인 허용
   credentials: true
 }));
 
@@ -24,7 +24,7 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 // Socket.io 설정
 const io = new Server(server, {
   cors: {
-    origin: ["http://localhost:3005", "http://localhost:3000"],
+    origin: true, // 모든 도메인 허용
     methods: ["GET", "POST"],
     credentials: true
   }
